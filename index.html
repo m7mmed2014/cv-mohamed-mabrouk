@@ -99,21 +99,7 @@
         .typewriter-text {
             overflow: hidden; /* Ensures the text is hidden until typed */
             white-space: nowrap; /* Keeps the text on a single line */
-            border-right: .15em solid #3b82f6; /* Blinking cursor */
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-            width: 0; /* Starts with zero width */
-        }
-
-        /* Typing animation */
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        /* Blinking cursor animation */
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #3b82f6; }
+            /* border-right will be controlled by JS */
         }
 
         /* Ensure images are responsive */
@@ -369,6 +355,7 @@
                 <li><a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Skills</a></li>
                 <li><a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Experience</a></li>
                 <li><a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Projects</a></li>
+                <li><a href="#services" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Services</a></li>
                 <li><a href="#testimonials" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Testimonials</a></li>
                 <li><a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Contact</a></li>
             </ul>
@@ -390,6 +377,7 @@
             <li><a href="#skills" class="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Skills</a></li>
             <li><a href="#experience" class="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Experience</a></li>
             <li><a href="#projects" class="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Projects</a></li>
+            <li><a href="#services" class="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Services</a></li>
             <li><a href="#testimonials" class="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Testimonials</a></li>
             <li><a href="#contact" class="block text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 ease-in-out">Contact</a></li>
         </ul>
@@ -400,7 +388,7 @@
         <div class="text-center animate-on-scroll z-10">
             <img src="https://placehold.co/180x180/ffffff/000000?text=Mohamed" alt="Mohamed Mabrouk's profile picture" class="rounded-full mx-auto mb-8 shadow-2xl border-4 border-white transform hover:scale-105 transition duration-500 ease-in-out">
             <h1 class="text-6xl md:text-7xl font-black mb-4 leading-tight drop-shadow-lg">Hello, I'm <span class="liquid-text-gradient">Mohamed Mabrouk</span></h1>
-            <p class="text-2xl md:text-3xl typewriter-text mx-auto max-w-3xl font-semibold text-blue-100">An experienced IT specialist with a solid background in managing operating systems, networks, and hardware maintenance.</p>
+            <p id="typewriterText" class="text-2xl md:text-3xl mx-auto max-w-3xl font-semibold text-blue-100"></p>
             <div class="mt-12 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                 <a href="#contact" class="bg-white text-blue-700 hover:bg-blue-100 px-10 py-4 rounded-full text-xl font-bold shadow-xl transition duration-300 ease-in-out transform hover:scale-105">Get in Touch</a>
                 <a href="#projects" class="border-2 border-white text-white hover:bg-white hover:text-blue-700 px-10 py-4 rounded-full text-xl font-bold shadow-xl transition duration-300 ease-in-out transform hover:scale-105">View My Work</a>
@@ -554,7 +542,7 @@
                         <div class="timeline-date text-blue-700 dark:text-blue-400">September 2024 - Present</div>
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">IT Specialist - Pyramakerz Technology</h3>
                         <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 text-lg">
-                            <li>IT Infrastructure Management & Establishment Spearheaded the design, implementation, and maintenance of robust internal networks, ensuring optimal efficiency and security from the ground up.</li>
+                            <li>**IT Infrastructure Management & Establishment:** Spearheaded the design, implementation, and maintenance of robust internal networks, ensuring optimal efficiency and security from the ground up.</li>
                             <li>Technical Support: Provided expert daily technical support, effectively troubleshooting and resolving hardware and software issues to maintain seamless workflow.</li>
                             <li>System & Software Management: Oversaw the installation, updating, and management of critical software and technical tools, ensuring alignment with business objectives.</li>
                             <li>Cybersecurity: Implemented and enforced stringent security measures to safeguard data and systems against digital threats, adhering to industry best practices.</li>
@@ -586,10 +574,11 @@
                 <div class="timeline-item animate-on-scroll">
                     <div class="timeline-item-dot"></div>
                     <div class="timeline-item-content bg-white dark:bg-gray-800 card-hover-effect">
-                        <div class="timeline-date text-blue-700 dark:text-blue-400">2022 - 9/2022</div>
+                        <div class="timeline-date text-blue-700 dark:text-blue-400">2022 - Present</div>
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">IT Specialist - El-Dabah Company</h3>
                         <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 text-lg">
                             <li>Windows System Management: Installed and managed Windows systems, proficiently troubleshooting complex registry issues.</li>
+                            <li>Communication Systems: Configured and maintained ISSABEL communication systems, ensuring reliable operations.</li>
                             <li>Network & Security Resolution: Expertly resolved challenging network and security-related issues.</li>
                             <li>Device Management: Managed and maintained surveillance cameras and fingerprint devices for enhanced security.</li>
                         </ul>
@@ -676,6 +665,45 @@
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-gray-50 dark:bg-gray-900 animate-on-scroll">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-extrabold text-center text-gray-900 dark:text-white mb-16">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Service 1: Network Solutions -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg card-hover-effect text-center">
+                    <div class="text-blue-600 dark:text-blue-400 mb-6">
+                        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Network Solutions</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-lg">
+                        Designing, implementing, and maintaining robust and secure network infrastructures tailored to your business needs, including MikroTik and advanced routing.
+                    </p>
+                </div>
+                <!-- Service 2: Cybersecurity & Data Protection -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg card-hover-effect text-center">
+                    <div class="text-blue-600 dark:text-blue-400 mb-6">
+                        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002.92 12c0 3.072 1.15 5.966 3.172 8.182A13.491 13.491 0 0112 21.433c2.905-.147 5.615-1.494 7.508-3.755.954-1.144 1.703-2.488 2.22-3.924a10.051 10.051 0 00-2.366-9.116z"></path></svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Cybersecurity & Data Protection</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-lg">
+                        Implementing robust security measures, managing surveillance systems, and safeguarding your critical data from digital threats and unauthorized access.
+                    </p>
+                </div>
+                <!-- Service 3: IT Infrastructure Management -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg card-hover-effect text-center">
+                    <div class="text-blue-600 dark:text-blue-400 mb-6">
+                        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">IT Infrastructure Management</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-lg">
+                        Comprehensive management of Windows Server systems, troubleshooting, remote device administration, and optimizing IT operations for peak performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-24 bg-gray-50 dark:bg-gray-900 animate-on-scroll">
         <div class="container mx-auto px-6">
@@ -716,7 +744,7 @@
                         <img src="https://placehold.co/60x60/6ee7b7/000000?text=MH" alt="Profile picture of Eng. Mahmoud Helmy" class="rounded-full mb-4 testimonial-img-hover">
                         <div>
                             <p class="font-bold text-gray-900 dark:text-white text-xl">Eng. Mahmoud Helmy</p>
-                            <p class="text-gray-600 dark:text-gray-400 text-base">IT Team Leader </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-base">IT Team Leader</p>
                         </div>
                     </div>
                 </div>
@@ -762,13 +790,13 @@
                         <a href="https://wa.me/201020114049" target="_blank" class="flex items-center space-x-3 text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-200 transition duration-300 text-xl font-medium">
                             <!-- WhatsApp Icon -->
                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.407 3.481 2.241 2.24 3.481 5.226 3.481 8.407 0 6.556-5.338 11.892-11.893 11.892-1.99-.001-3.951-.501-5.688-1.448l-6.314 1.687zm6.597-3.807c1.457.772 3.105 1.181 4.798 1.181 5.275 0 9.549-4.275 9.549-9.548s-4.275-9.549-9.549-9.549-9.549 4.275-9.549 9.549c0 1.79.47 3.45 1.283 4.939l.798 1.458-1.59 5.822 5.922-1.579zm-1.407-3.411l-.504-.265s-.38-.198-.546-.265c-.165-.067-.386-.104-.607.105-.22.21-.865 1.052-1.055 1.273-.19.22-.38.237-.704.084-.323-.154-1.145-.42-2.18-.949-.808-.414-1.354-.91-1.518-1.18-.163-.271-.018-.42.12-.553.12-.12.27-.291.405-.461.135-.172.18-.323.271-.489.091-.166.045-.311-.023-.438-.067-.128-.607-1.464-.832-1.996-.225-.53-.455-.46-.62-.469-.165-.01-.355-.009-.546-.009s-.38.067-.57.265c-.19.198-.729.717-.729 1.745s.745 2.023.84 2.156c.096.133 1.493 2.227 3.636 3.111 1.018.423 1.815.681 2.427.865.207.06.398.04.546-.091.147-.133.64-2.203.64-2.394s.323-.19.47-.266c.146-.067.971-.477 1.14-.986.17-.508.17-.94.12-.999-.046-.06-.17-.091-.36-.148z"></path></svg>
-                            <span>+20 1020114049 (WhatsApp) & (Call)</span>
-                        <!-- </a>
+                            <span>+20 1020114049 (WhatsApp)</span>
+                        </a>
                         <a href="tel:+201550635309" class="flex items-center space-x-3 text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-200 transition duration-300 text-xl font-medium">
-                             Phone Icon 
+                            <!-- Phone Icon -->
                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 22.057c-3.189 0-4.223-2.188-6-3.871-1.777-1.683-3.811-3.871-7-3.871-1.071 0-2.035.161-2.924.469l-1.076-1.076c1.071-.357 2.143-.589 3.214-.589 4.286 0 6.428 2.5 8 4.071 1.572 1.572 4 3.714 8 3.714 1.071 0 2.143-.214 3.214-.589l-1.076 1.076c-.889.308-1.853.469-2.924.469zm-1.127-14.807c-3.189 0-4.223-2.188-6-3.871-1.777-1.683-3.811-3.871-7-3.871-1.071 0-2.035.161-2.924.469l-1.076-1.076c1.071-.357 2.143-.589 3.214-.589 4.286 0 6.428 2.5 8 4.071 1.572 1.572 4 3.714 8 3.714 1.071 0 2.143-.214 3.214-.589l-1.076 1.076c-.889.308-1.853.469-2.924.469z"></path></svg>
                             <span>+20 1550635309 (Call)</span>
-                        </a> -->
+                        </a>
                         <a href="https://www.linkedin.com/in/mohamedmabroukibrahim/" target="_blank" class="flex items-center space-x-3 text-blue-700 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-200 transition duration-300 text-xl font-medium">
                             <!-- LinkedIn Icon -->
                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
@@ -783,8 +811,8 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-10 text-center rounded-t-xl">
         <div class="container mx-auto px-4">
-            <p class="text-lg">&copy; 2025 Mohamed Mabrouk. All rights reserved ❤️.</p>
-            <!-- <p class="text-base mt-3">Designed with ❤️ using HTML, Tailwind CSS, and JavaScript.</p> -->
+            <p class="text-lg">&copy; 2025 Mohamed Mabrouk. All rights reserved.</p>
+            <p class="text-base mt-3">Designed with ❤️ using HTML, Tailwind CSS, and JavaScript.</p>
         </div>
     </footer>
 
@@ -922,11 +950,51 @@
 
         // Typewriter effect for the hero section text (CSS-based, no JS needed for animation itself)
         // This JS block is just to ensure the text is reset for the CSS animation to play correctly on load/refresh.
-        const typewriterTextElement = document.querySelector('.typewriter-text');
+        const typewriterTextElement = document.getElementById('typewriterText');
         if (typewriterTextElement) {
-            const text = typewriterTextElement.textContent;
-            typewriterTextElement.style.width = '0'; // Reset width for animation
-            typewriterTextElement.textContent = text; // Set text back to trigger CSS animation
+            const fullText = "An experienced IT specialist with a solid background in managing operating systems, networks, and hardware maintenance."; // The text to type
+            typewriterTextElement.textContent = ''; // Clear it initially
+            let charIndex = 0;
+            let isTyping = true;
+            let typeSpeed = 70; // Typing speed in ms
+            let eraseSpeed = 30; // Erasing speed in ms
+            let pauseAfterType = 2000; // Pause after typing (2 seconds)
+            let pauseAfterErase = 1000; // Pause after erasing (1 second)
+
+            // Create and manage the blinking cursor
+            const cursor = document.createElement('span');
+            cursor.className = 'typewriter-cursor';
+            cursor.style.borderRight = '.15em solid #3b82f6';
+            cursor.style.animation = 'blink-caret .75s step-end infinite';
+            typewriterTextElement.parentNode.insertBefore(cursor, typewriterTextElement.nextSibling);
+
+
+            function typeWriterEffect() {
+                if (isTyping) {
+                    if (charIndex < fullText.length) {
+                        typewriterTextElement.textContent += fullText.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeWriterEffect, typeSpeed);
+                    } else {
+                        isTyping = false;
+                        setTimeout(typeWriterEffect, pauseAfterType); // Pause before erasing
+                    }
+                } else {
+                    if (charIndex > 0) {
+                        typewriterTextElement.textContent = fullText.substring(0, charIndex - 1);
+                        charIndex--;
+                        setTimeout(typeWriterEffect, eraseSpeed);
+                    } else {
+                        isTyping = true;
+                        setTimeout(typeWriterEffect, pauseAfterErase); // Pause before re-typing
+                    }
+                }
+            }
+
+            // Start the effect when the page loads
+            window.addEventListener('load', () => {
+                typeWriterEffect();
+            });
         }
 
         // Scroll Progress Indicator Logic
