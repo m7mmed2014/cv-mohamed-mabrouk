@@ -6,12 +6,14 @@
     <title>Mohamed Mabrouk - Professional CV</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Cairo (New Font) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Almarai (New Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <!-- particles.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <style>
-        /* Custom styles for Cairo font and smooth scrolling */
+        /* Custom styles for Almarai font and smooth scrolling */
         body {
-            font-family: 'Cairo', sans-serif; /* Changed font to Cairo */
+            font-family: 'Almarai', sans-serif; /* Changed font to Almarai */
             scroll-behavior: smooth;
             background-color: #f0f2f5; /* Light gray background */
             color: #1f2937; /* Dark gray text */
@@ -339,6 +341,83 @@
         .testimonial-img-hover:hover {
             transform: scale(1.1);
         }
+
+        /* particles.js container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: transparent; /* Background is handled by hero section gradient */
+            background-image: url('');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            z-index: 0; /* Ensure it's behind the content */
+        }
+
+        /* New subtle background shapes for other sections */
+        .section-bg-shapes {
+            position: absolute;
+            inset: 0;
+            z-index: -2; /* Behind content and particles-js */
+            overflow: hidden;
+            opacity: 0.05; /* Very subtle */
+        }
+
+        .shape-circle-1 {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: #8b5cf6; /* Purple */
+            border-radius: 50%;
+            filter: blur(50px);
+            animation: float-and-fade 15s infinite ease-in-out alternate;
+            top: 10%;
+            left: 5%;
+        }
+
+        .shape-square-1 {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-color: #3b82f6; /* Blue */
+            transform: rotate(45deg);
+            filter: blur(40px);
+            animation: float-and-rotate 20s infinite linear;
+            bottom: 20%;
+            right: 10%;
+        }
+
+        .shape-circle-2 {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background-color: #ec4899; /* Pink */
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float-and-fade 18s infinite ease-in-out alternate reverse;
+            top: 60%;
+            left: 25%;
+        }
+
+        @keyframes float-and-fade {
+            0% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-20px) scale(1.05); opacity: 0.7; }
+            100% { transform: translateY(0) scale(1); opacity: 0.5; }
+        }
+
+        @keyframes float-and-rotate {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-30px) rotate(360deg); }
+        }
+
+        /* Service Icon Hover Effect */
+        .service-icon-hover {
+            transition: transform 0.3s ease-in-out;
+        }
+        .service-icon-hover:hover {
+            transform: scale(1.15);
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -385,6 +464,9 @@
 
     <!-- Hero Section -->
     <section id="hero" class="relative bg-gradient-to-br from-blue-600 to-indigo-700 text-white h-screen flex items-center justify-center p-4 pt-20 overflow-hidden">
+        <!-- particles.js container -->
+        <div id="particles-js"></div>
+
         <div class="text-center animate-on-scroll z-10">
             <img src="https://placehold.co/180x180/ffffff/000000?text=Mohamed" alt="Mohamed Mabrouk's profile picture" class="rounded-full mx-auto mb-8 shadow-2xl border-4 border-white transform hover:scale-105 transition duration-500 ease-in-out">
             <h1 class="text-6xl md:text-7xl font-black mb-4 leading-tight drop-shadow-lg">Hello, I'm <span class="liquid-text-gradient">Mohamed Mabrouk</span></h1>
@@ -394,12 +476,12 @@
                 <a href="#projects" class="border-2 border-white text-white hover:bg-white hover:text-blue-700 px-10 py-4 rounded-full text-xl font-bold shadow-xl transition duration-300 ease-in-out transform hover:scale-105">View My Work</a>
             </div>
         </div>
-        <!-- Subtle background animation elements -->
-        <div class="absolute inset-0 z-0 opacity-10">
+        <!-- Subtle background animation elements - these are replaced by particles.js -->
+        <!-- <div class="absolute inset-0 z-0 opacity-10">
             <div class="absolute w-64 h-64 bg-blue-400 rounded-full blur-3xl opacity-50 animate-pulse-slow" style="top: 10%; left: 15%;"></div>
             <div class="absolute w-80 h-80 bg-indigo-400 rounded-full blur-3xl opacity-50 animate-pulse-medium" style="bottom: 5%; right: 20%;"></div>
             <div class="absolute w-52 h-52 bg-purple-400 rounded-full blur-3xl opacity-50 animate-pulse-fast" style="top: 30%; right: 10%;"></div>
-        </div>
+        </div> -->
     </section>
 
     <!-- About Me Section -->
@@ -672,8 +754,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <!-- Service 1: Network Solutions -->
                 <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg card-hover-effect text-center">
-                    <div class="text-blue-600 dark:text-blue-400 mb-6">
-                        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
+                    <div class="text-blue-600 dark:text-blue-400 mb-6 service-icon-hover transform scale-100">
+                        <!-- Network Icon -->
+                        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM10 10v4m4-4v4m-4-4H7m7 0h3"></path></svg>
                     </div>
                     <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Network Solutions</h3>
                     <p class="text-gray-700 dark:text-gray-300 text-lg">
@@ -682,7 +765,8 @@
                 </div>
                 <!-- Service 2: Cybersecurity & Data Protection -->
                 <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg card-hover-effect text-center">
-                    <div class="text-blue-600 dark:text-blue-400 mb-6">
+                    <div class="text-blue-600 dark:text-blue-400 mb-6 service-icon-hover transform scale-100">
+                        <!-- Cybersecurity Icon -->
                         <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002.92 12c0 3.072 1.15 5.966 3.172 8.182A13.491 13.491 0 0112 21.433c2.905-.147 5.615-1.494 7.508-3.755.954-1.144 1.703-2.488 2.22-3.924a10.051 10.051 0 00-2.366-9.116z"></path></svg>
                     </div>
                     <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Cybersecurity & Data Protection</h3>
@@ -692,7 +776,8 @@
                 </div>
                 <!-- Service 3: IT Infrastructure Management -->
                 <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg card-hover-effect text-center">
-                    <div class="text-blue-600 dark:text-blue-400 mb-6">
+                    <div class="text-blue-600 dark:text-blue-400 mb-6 service-icon-hover transform scale-100">
+                        <!-- Server Icon -->
                         <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
                     </div>
                     <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">IT Infrastructure Management</h3>
@@ -715,9 +800,9 @@
                         "Mohamed is an exceptionally skilled IT professional. His profound problem-solving abilities and unwavering dedication ensure seamless operations. He is an invaluable asset to any technical team."
                     </p>
                     <div class="flex flex-col items-center">
-                        <img src="https://placehold.co/60x60/a78bfa/ffffff?text=ES" alt="Profile picture of Eng. Ehab Soliman" class="rounded-full mb-4 testimonial-img-hover">
+                        <img src="https://placehold.co/60x60/a78bfa/ffffff?text=ES" alt="Profile picture of Ehab Soliman" class="rounded-full mb-4 testimonial-img-hover">
                         <div>
-                            <p class="font-bold text-gray-900 dark:text-white text-xl">Eng.Ehab Soliman</p>
+                            <p class="font-bold text-gray-900 dark:text-white text-xl">Ehab Soliman</p>
                             <p class="text-gray-600 dark:text-gray-400 text-base">IT Manager at PC World</p>
                         </div>
                     </div>
@@ -728,9 +813,9 @@
                         "Working with Mohamed on complex network infrastructures has been a privilege. His expertise in MikroTik and ISSABEL systems is unparalleled, consistently delivering superior results and innovative solutions."
                     </p>
                     <div class="flex flex-col items-center">
-                        <img src="https://placehold.co/60x60/fcd34d/000000?text=AH" alt="Profile picture of Eng. Ahmed Hassan" class="rounded-full mb-4 testimonial-img-hover">
+                        <img src="https://placehold.co/60x60/fcd34d/000000?text=AH" alt="Profile picture of Ahmed Hassan" class="rounded-full mb-4 testimonial-img-hover">
                         <div>
-                            <p class="font-bold text-gray-900 dark:text-white text-xl">Eng.Ahmed Hassan</p>
+                            <p class="font-bold text-gray-900 dark:text-white text-xl">Ahmed Hassan</p>
                             <p class="text-gray-600 dark:text-gray-400 text-base">CEO at PC World</p>
                         </div>
                     </div>
@@ -791,12 +876,12 @@
                             <!-- WhatsApp Icon -->
                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.407 3.481 2.241 2.24 3.481 5.226 3.481 8.407 0 6.556-5.338 11.892-11.893 11.892-1.99-.001-3.951-.501-5.688-1.448l-6.314 1.687zm6.597-3.807c1.457.772 3.105 1.181 4.798 1.181 5.275 0 9.549-4.275 9.549-9.548s-4.275-9.549-9.549-9.549-9.549 4.275-9.549 9.549c0 1.79.47 3.45 1.283 4.939l.798 1.458-1.59 5.822 5.922-1.579zm-1.407-3.411l-.504-.265s-.38-.198-.546-.265c-.165-.067-.386-.104-.607.105-.22.21-.865 1.052-1.055 1.273-.19.22-.38.237-.704.084-.323-.154-1.145-.42-2.18-.949-.808-.414-1.354-.91-1.518-1.18-.163-.271-.018-.42.12-.553.12-.12.27-.291.405-.461.135-.172.18-.323.271-.489.091-.166.045-.311-.023-.438-.067-.128-.607-1.464-.832-1.996-.225-.53-.455-.46-.62-.469-.165-.01-.355-.009-.546-.009s-.38.067-.57.265c-.19.198-.729.717-.729 1.745s.745 2.023.84 2.156c.096.133 1.493 2.227 3.636 3.111 1.018.423 1.815.681 2.427.865.207.06.398.04.546-.091.147-.133.64-2.203.64-2.394s.323-.19.47-.266c.146-.067.971-.477 1.14-.986.17-.508.17-.94.12-.999-.046-.06-.17-.091-.36-.148z"></path></svg>
                             <span>+20 1020114049 (WhatsApp)</span>
-                        <!-- </a>
+                        </a>
                         <a href="tel:+201550635309" class="flex items-center space-x-3 text-green-700 dark:text-green-400 hover:text-green-900 dark:hover:text-green-200 transition duration-300 text-xl font-medium">
-                             Phone Icon 
-                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 22.057c-3.189 0-4.223-2.188-6-3.871-1.777-1.683-3.811-3.871-7-3.871-1.071 0-2.035.161-2.924.469l-1.076-1.076c1.071-.357 2.143-.589 3.214-.589 4.286 0 6.428 2.5 8 4.071 1.572 1.572 4 3.714 8 3.714 1.071 0 2.143-.214 3.214-.589l-1.076 1.076c-.889.308-1.853.469-2.924.469zm-1.127-14.807c-3.189 0-4.223-2.188-6-3.871-1.777-1.683-3.811-3.871-7-3.871-1.071 0-2.035.161-2.924.469l-1.076-1.076c1.071-.357 2.143-.589 3.214-.589 4.286 0 6.428 2.5 8 4.071 1.572 1.572 4 3.714 8 3.714 1.071 0 2.143-.214 3.214-.589l-1.076 1.076c-.889.308-1.853.469-2.924.469z"></path></svg>
+                            <!-- Phone Icon -->
+                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 22.057c-3.189 0-4.223-2.188-6-3.871-1.777-1.683-3.811-3.871-7-3.871-1.071 0-2.035.161-2.924.469l-1.076-1.076c1.071-.357 2.143-.589 3.214-.589 4.286 0 6.428 2.5 8 4.071 1.572 1.572 4 3.714 8 3.714 1.071 0 2.143-.214 3.214-.589l-1.076 1.076c-.889.308-1.853.469-2.924.469z"></path></svg>
                             <span>+20 1550635309 (Call)</span>
-                        </a> -->
+                        </a>
                         <a href="https://www.linkedin.com/in/mohamedmabroukibrahim/" target="_blank" class="flex items-center space-x-3 text-blue-700 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-200 transition duration-300 text-xl font-medium">
                             <!-- LinkedIn Icon -->
                             <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
@@ -812,7 +897,7 @@
     <footer class="bg-gray-900 text-white py-10 text-center rounded-t-xl">
         <div class="container mx-auto px-4">
             <p class="text-lg">&copy; 2025 Mohamed Mabrouk. All rights reserved.</p>
-            <!-- <p class="text-base mt-3">Designed with ❤️ using HTML, Tailwind CSS, and JavaScript.</p> -->
+            <p class="text-base mt-3">Designed with ❤️ using HTML, Tailwind CSS, and JavaScript.</p>
         </div>
     </footer>
 
@@ -956,7 +1041,7 @@
             typewriterTextElement.textContent = ''; // Clear it initially
             let charIndex = 0;
             let isTyping = true;
-            let typeSpeed = 80; // Typing speed in ms
+            let typeSpeed = 70; // Typing speed in ms
             let eraseSpeed = 30; // Erasing speed in ms
             let pauseAfterType = 2000; // Pause after typing (2 seconds)
             let pauseAfterErase = 1000; // Pause after erasing (1 second)
@@ -988,6 +1073,8 @@
                         isTyping = true;
                         setTimeout(typeWriterEffect, pauseAfterErase); // Pause before re-typing
                     }
+                    // Ensure cursor visibility is correctly managed during erase/re-type
+                    cursor.style.borderRight = '.15em solid #3b82f6';
                 }
             }
 
@@ -1023,6 +1110,153 @@
             });
         });
 
+        // particles.js initialization
+        window.addEventListener('load', () => {
+            // Only initialize if the element exists and particlesJS is defined globally
+            if (document.getElementById('particles-js') && typeof particlesJS !== 'undefined') {
+                // Check if particles.js is already initialized for this element
+                // pJSDom is an array of initialized particles.js instances
+                const isParticlesInitialized = window.pJSDom && window.pJSDom.some(p => p.tag_id === 'particles-js');
+
+                if (!isParticlesInitialized) {
+                    particlesJS('particles-js', {
+                        "particles": {
+                            "number": {
+                                "value": 80,
+                                "density": {
+                                    "enable": true,
+                                    "value_area": 800
+                                }
+                            },
+                            "color": {
+                                "value": "#ffffff" // White particles for light mode
+                            },
+                            "shape": {
+                                "type": "circle",
+                                "stroke": {
+                                    "width": 0,
+                                    "color": "#000000"
+                                },
+                                "polygon": {
+                                    "nb_sides": 5
+                                }
+                            },
+                            "opacity": {
+                                "value": 0.5,
+                                "random": false,
+                                "anim": {
+                                    "enable": false,
+                                    "speed": 1,
+                                    "opacity_min": 0.1,
+                                    "sync": false
+                                }
+                            },
+                            "size": {
+                                "value": 3,
+                                "random": true,
+                                "anim": {
+                                    "enable": false,
+                                    "speed": 40,
+                                    "size_min": 0.1,
+                                    "sync": false
+                                }
+                            },
+                            "line_linked": {
+                                "enable": true,
+                                "distance": 150,
+                                "color": "#ffffff", // White lines for light mode
+                                "opacity": 0.4,
+                                "width": 1
+                            },
+                            "move": {
+                                "enable": true,
+                                "speed": 6,
+                                "direction": "none",
+                                "random": false,
+                                "straight": false,
+                                "out_mode": "out",
+                                "bounce": false,
+                                "attract": {
+                                    "enable": false,
+                                    "rotateX": 600,
+                                    "rotateY": 1200
+                                }
+                            }
+                        },
+                        "interactivity": {
+                            "detect_on": "canvas",
+                            "events": {
+                                "onhover": {
+                                    "enable": true,
+                                    "mode": "grab"
+                                },
+                                "onclick": {
+                                    "enable": true,
+                                    "mode": "push"
+                                },
+                                "resize": true
+                            },
+                            "modes": {
+                                "grab": {
+                                    "distance": 140,
+                                    "line_linked": {
+                                        "opacity": 1
+                                    }
+                                },
+                                "bubble": {
+                                    "distance": 400,
+                                    "size": 40,
+                                    "duration": 2,
+                                    "opacity": 8,
+                                    "speed": 3
+                                },
+                                "repulse": {
+                                    "distance": 200,
+                                    "duration": 0.4
+                                },
+                                "push": {
+                                    "particles_nb": 4
+                                },
+                                "remove": {
+                                    "particles_nb": 2
+                                }
+                            }
+                        },
+                        "retina_detect": true
+                    });
+                }
+            }
+
+            // Adjust particles color for dark mode dynamically
+            const adjustParticlesColor = () => {
+                // Use a retry mechanism to ensure particles.js is fully initialized
+                const pJSDomInstance = window.pJSDom && window.pJSDom.length > 0 ? window.pJSDom[0] : null;
+
+                if (pJSDomInstance && pJSDomInstance.pJS && pJSDomInstance.pJS.particles && pJSDomInstance.pJS.fn) {
+                    const particles = pJSDomInstance.pJS.particles;
+                    const lineLinked = pJSDomInstance.pJS.particles.line_linked;
+
+                    if (htmlElement.classList.contains('dark')) {
+                        particles.color.value = "#a0aec0"; // Lighter gray for dark mode
+                        lineLinked.color = "#a0aec0"; // Lighter gray lines for dark mode
+                    } else {
+                        particles.color.value = "#ffffff"; // White particles for light mode
+                        lineLinked.color = "#ffffff"; // White lines for light mode
+                    }
+                    // This line is crucial to re-render particles with new colors
+                    pJSDomInstance.pJS.fn.particlesRefresh();
+                } else {
+                    // If particles.js is not ready, retry after a short delay
+                    setTimeout(adjustParticlesColor, 100);
+                }
+            };
+
+            // Call on initial load
+            adjustParticlesColor();
+
+            // Listen for dark mode toggle to adjust particle colors
+            darkModeToggle.addEventListener('click', adjustParticlesColor);
+        });
     </script>
 </body>
 </html>
